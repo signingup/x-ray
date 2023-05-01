@@ -13,8 +13,8 @@ FROM alpine
 
 RUN apk update && apk add ca-certificates && \
     mkdir -p /usr/bin && \
-    wget -O /usr/bin/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat && \
-    wget -O /usr/bin/geoip.dat https://github.com/v2fly/geoip/releases/latest/download/geoip.dat
+    wget -O /usr/bin/geosite.dat  https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat && \
+    wget -O /usr/bin/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 COPY --from=builder /tmp/xray /usr/bin/xray
 ADD ./entrypoint.sh entrypoint.sh
 RUN chmod +x ./entrypoint.sh
