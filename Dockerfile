@@ -1,10 +1,10 @@
 ############################
 # STEP 1 build executable binary
 ############################
-FROM golang:1.20.1-alpine AS builder
+FROM golang:1.21-alpine AS builder
 RUN apk update && apk add --no-cache git bash wget curl
 WORKDIR /go/src/XTLS/Xray-core
-RUN git clone --progress https://github.com/XTLS/Xray-core.git --branch  v1.8.3 . && \
+RUN git clone --progress https://github.com/XTLS/Xray-core.git --branch  v1.8.4 . && \
   CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -trimpath -ldflags "-s -w" -o /tmp/xray ./main
 ############################
 # STEP 2 build a small image
